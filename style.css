@@ -65,7 +65,7 @@ body {
 }
 .section-titles img {
     border-radius: 50%;
-    width: 12.5%;
+    width: 3rem;
     margin-right: 15px;
     border: 2px solid white;
 }
@@ -146,4 +146,44 @@ blockquote {
 
 
 
-/* @media screen and (min-width: 1440px) */
+@media screen and (min-width: 1000px) {
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* padding: 10% 5%; */
+    }
+    .quoting {
+        right: 75px;
+    }
+    .wrapper {
+        display: grid;
+        padding: 50px 70px;
+        margin: auto;
+        gap: 20px;
+        grid-template-areas: 
+            "purple purple dark-gray white1"
+            "white2 very-dark-gray very-dark-gray white1";  
+    }
+    .bg-purple {
+        grid-area: purple;
+    }
+    .bg-dark-gray {
+        grid-area: dark-gray;
+    }
+    .bg-very-dark-gray{
+        grid-area: very-dark-gray;
+    }
+    .white2 {
+        grid-area: white1;
+    }
+    .white1 {
+        grid-area: white2;
+    }
+    .card {
+        padding: 25px 35px;
+    }
+    blockquote {
+        font-size: 1.1rem;
+    }
+}
