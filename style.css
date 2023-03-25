@@ -102,11 +102,14 @@ blockquote { /* user quote */
     border-color: hsl(263, 55%, 52%);
 }
 
-@media screen and (min-width: 1400px) {
+@media screen and (min-width: 1000px) {
+    body { /* flex center */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
     .wrapper { /* container in grid display; grid areas */
         display: grid;
-        padding: 50px 70px;
-        margin: auto;
         gap: 20px;
         grid-template-areas: 
             "purple purple dark-gray white1"
