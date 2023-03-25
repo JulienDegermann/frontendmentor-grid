@@ -1,30 +1,12 @@
-/* 
+/* Generals */
 
-- Mobile: 375px
-- Desktop: 1440px
-
-### Neutral
-
-Light gray: hsl(0, 0%, 81%)
-
-Note for text colors:
-
-1. "Verified Graduate" has the same color as the person's name with 50% opacity
-2. Review paragraphs inside the quotations have the same color as well, but are at 70% opacity
-
-*/
-
-* {
+* { /* reset settings */
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-h1{
-    display: none;
-}
-
 html,
-body {
+body { /* apply settings to entire page */
     font-size: 13px;
     height: 100vh;
     width: 100vw;
@@ -32,71 +14,61 @@ body {
     background: hsl(210, 46%, 95%);
     font-weight: 500;
 }
+h1{ /* add invisible main title*/
+    display: none;
+}
 
-.wrapper {
+.wrapper { /* main container for grid desktop display */
     display: flex;
     flex-direction: column;
     gap: 20px;
     padding: 30px;
     width: 100%;
 }
-/*  */
-.quoting {
-    position: absolute;
-    right: 20px;
-    top: 0;
-    z-index: 0;
-}
-/* position relative to create new stacking and being able to be over quoting */
-.section-titles {
-    display: flex;
-    align-items: center;
-    height: fit-content;
-    color: hsl(0, 0%, 81%);
-    opacity: 1;
-    position: relative;
-}
-.section-titles h2 {
-    font-size: 1rem;
-}
-.section-titles p {
-    font-size: .85rem;
-    opacity: .5;
-}
-.section-titles img {
-    border-radius: 50%;
-    width: 3rem;
-    margin-right: 15px;
-    border: 2px solid white;
-}
-
-
-.card {
+.card { /* user comments block */
     border-radius: 5px;
     padding: 25px;
     width: 100%;
     position: relative;
 }
-
-blockquote {
-    color: hsl(0, 0%, 81%);
-    opacity: .5;
-    font-size: .9rem;
+.quoting { /* svg quote decoration */
+    position: absolute;
+    right: 20px;
+    top: 0;
+    /* z-index: 0; */
 }
-.quote {
+.section-titles { /* user name + verified status group; position relative to create new stacking and being able to be over quoting */
+    display: flex;
+    align-items: center;
+    color: hsl(0, 0%, 81%);
+    position: relative;
+}
+.section-titles h2 { /* user name */
+    font-size: 1rem;
+}
+.section-titles p { /* verified status */
+    font-size: .85rem;
+    opacity: .5;
+}
+.section-titles img { /* user picture */
+    border-radius: 50%;
+    width: 3rem;
+    margin-right: 15px;
+    border: 2px solid rgba(255, 255, 255, .25);
+}
+.quote { /* important user quote */
     font-size: 1.5rem;
     padding: 1.2rem 0px;
     color: hsl(0, 0%, 81%);
     opacity: .85;
 }
-
-
-
+blockquote { /* user quote */
+    color: hsl(0, 0%, 81%);
+    opacity: .5;
+    font-size: .9rem;
+}
 
 /* colors */
-.white {
-    color:hsl(0, 0%, 100%);
-}
 .bg-purple {
     background: hsl(263, 55%, 52%);
 }
@@ -109,54 +81,29 @@ blockquote {
 .bg-white {
     background: hsl(0, 0%, 100%);
 }
-/* main quote color depending on bg color + text color depending bg-color*/
+
+/* COLOR GESTION DEPENDING ON BLOCK COLOR */
+/* text */
 .bg-purple .quote,
 .bg-very-dark-gray .quote,
-.bg-dark-gray .quote
- {
+.bg-very-dark-gray blockquote, 
+.bg-dark-gray .quote { /* main quote white for dark bg */
     color: white;
 }
 .bg-white .quote,
 .bg-white h2,
 .bg-white p,
-.bg-white blockquote {
+.bg-white blockquote { /* main user quotes, p, user and  dark for dark bg */
     color: hsl(217, 19%, 35%);
 }
 
-
-/* border color depending on bg color */
-
-.bg-purple img,
-.bg-dark-gray img {
-    border-color: rgba(255, 255, 255, .25);
-}
-.bg-very-dark-gray img {
+/* picture border */
+.bg-very-dark-gray img { /* purple for very-dark-gray card */
     border-color: hsl(263, 55%, 52%);
 }
 
-/* text and title color depending on bg color */
-
-.bg-very-dark-gray img {
-    border-color: hsl(263, 55%, 52%);
-}
-.bg-very-dark-gray blockquote {
-    color: white;
-}
-
-
-
-
-@media screen and (min-width: 1000px) {
-    body {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        /* padding: 10% 5%; */
-    }
-    .quoting {
-        right: 75px;
-    }
-    .wrapper {
+@media screen and (min-width: 1400px) {
+    .wrapper { /* container in grid display; grid areas */
         display: grid;
         padding: 50px 70px;
         margin: auto;
@@ -165,25 +112,29 @@ blockquote {
             "purple purple dark-gray white1"
             "white2 very-dark-gray very-dark-gray white1";  
     }
-    .bg-purple {
+    /* area reparts */
+    .bg-purple { /* area reparts */
         grid-area: purple;
     }
-    .bg-dark-gray {
+    .bg-dark-gray { /* area reparts */
         grid-area: dark-gray;
     }
-    .bg-very-dark-gray{
+    .bg-very-dark-gray{ /* area reparts */
         grid-area: very-dark-gray;
     }
-    .white2 {
+    .white2 { /* area reparts */
         grid-area: white1;
     }
-    .white1 {
+    .white1 { /* area reparts */
         grid-area: white2;
     }
-    .card {
+    .card { /* adjust card padding */
         padding: 25px 35px;
     }
-    blockquote {
+    .quoting { /* adjust quote decoration position */
+        right: 75px;
+    }
+    blockquote { /* resize user quote text size */
         font-size: 1.1rem;
     }
 }
