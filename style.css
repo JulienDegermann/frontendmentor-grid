@@ -37,11 +37,11 @@ h1{ /* add invisible main title*/
     top: 0;
     /* z-index: 0; */
 }
-.section-titles { /* user name + verified status group; position relative to create new stacking and being able to be over quoting */
+.section-titles { /* user name + verified status group; position relative to create new stacking context and being able to be over quoting */
     display: flex;
     align-items: center;
     color: hsl(0, 0%, 81%);
-    position: relative;
+    /* position: relative; */
 }
 .section-titles h2 { /* user name */
     font-size: 1rem;
@@ -102,7 +102,7 @@ blockquote { /* user quote */
     border-color: hsl(263, 55%, 52%);
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 992px) {
     body { /* flex center */
         display: flex;
         align-items: center;
@@ -110,6 +110,7 @@ blockquote { /* user quote */
     }
     .wrapper { /* container in grid display; grid areas */
         display: grid;
+        max-width: 1440px;
         gap: 20px;
         grid-template-areas: 
             "purple purple dark-gray white1"
